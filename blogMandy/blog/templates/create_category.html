@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block stylesheets %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/common.css' %}">
+{% endblock stylesheets %}
+
+
+{% block content %}
+
+<div class="container">
+    <h2 class="heading">Create New category</h2>
+    <form method="post" class="form-container">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create category</button>
+    </form>
+    <div class="footer">
+        <a href="{% url 'blog:home' %}" class="return">return back to home</a>
+    </div>
+</div>
+
+{% endblock content %}
