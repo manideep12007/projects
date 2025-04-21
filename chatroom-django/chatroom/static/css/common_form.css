@@ -1,0 +1,156 @@
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 25px 30px;
+    background-color: rgba(0, 0, 0, 0.95);
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(255, 0, 0, 0.2);
+}
+
+#back-btn a {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: red;
+    text-decoration: none;
+    font-size: 26px;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+#back-btn a:hover {
+    color: white;
+}
+
+.heading {
+    text-align: center;
+    font-size: 26px;
+    color: red;
+    margin-bottom: 25px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-control div {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 20px;
+    color: red;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    padding: 12px;
+    font-size: 16px;
+    color: red;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    background-color: white;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: red;
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
+    outline: none;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-errors {
+    color: red;
+    font-size: 14px;
+    margin-top: -10px;
+}
+
+.form-errors p {
+    margin: 0;
+}
+
+.submit-button {
+    background-color: red;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+}
+
+.optional {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.optional a {
+    font-size: 17px;
+    font-weight: bold;
+    color: red;
+    text-decoration: none;
+    transition: text-decoration 0.3s ease, color 0.3s ease;
+}
+
+.optional a:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 30px 15px;
+    }
+
+    .heading {
+        font-size: 22px;
+    }
+
+    label {
+        font-size: 18px;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 15px;
+    }
+
+    .submit-button {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .optional a {
+        font-size: 16px;
+    }
+}

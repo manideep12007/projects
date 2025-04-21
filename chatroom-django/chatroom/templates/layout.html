@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatRoom{% block title %}{% endblock title %}</title>
+    <link rel="icon" href="{% static 'images/project-icon.png' %}" sizes="16x16">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    {% block stylesheets %}{% endblock stylesheets %}
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <main>
+        {% block content %}{% endblock content %}
+    </main>
+    <footer>
+        <p>&copy; 2025 Mandy's ChatRoom. All rights reserved.</p>
+    </footer>
+</body>
+</html>

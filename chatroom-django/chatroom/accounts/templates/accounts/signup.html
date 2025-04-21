@@ -1,0 +1,98 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'css/common_form.css' %}">
+{% endblock stylesheets %}
+
+{% block title %}
+- signup
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div id="back-btn">
+        <a href="{% url 'home' %}">
+            ⟵
+        </a>
+    </div>
+    <h2 class="heading">Signup Page</h2>
+    <div class="form-container">
+        <form method="post" class="form-control" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- username field -->
+            <div class="form-username">
+                <label for="{{ form.username.id_for_label }}">
+                    {{ form.username.label }}
+                </label>
+                {{ form.username }}
+            </div>
+            <!-- email field -->
+            <div class="form-email">
+                <label for="{{ form.email.id_for_label }}">
+                    {{ form.email.label }}
+                </label>
+                {{ form.email }}
+            </div>
+            <!-- dob field -->
+            <div class="form-dob">
+                <label for="{{ form.dob.id_for_label }}">
+                    {{ form.dob.label }}
+                </label>
+                {{ form.dob }}
+            </div>
+            <!-- gender field -->
+            <div class="form-gender">
+                <label for="{{ form.gender.id_for_label }}">
+                    {{ form.gender.label }}
+                </label>
+                {{ form.gender }}
+            </div>
+            <!-- profile_pic field -->
+            <div class="form-profile_pic">
+                <label for="{{ form.profile_pic.id_for_label }}">
+                    {{ form.profile_pic.label }}
+                </label>
+                {{ form.profile_pic }}
+            </div>
+            <!-- password1 field -->
+            <div class="form-password1">
+                <label for="{{ form.password2.id_for_label }}">
+                    {{ form.password1.label }}
+                </label>
+                {{ form.password1 }}
+            </div>
+            <!-- password2 field -->
+            <div class="form-password2">
+                <label for="{{ form.password2.id_for_label }}">
+                    {{ form.password2.label }}
+                </label>
+                {{ form.password2 }}
+            </div>
+            <!-- bio field -->
+            <div class="form-bio">
+                <label for="{{ form.bio.id_for_label }}">
+                    {{ form.bio.label }}
+                </label>
+                {{ form.bio }}
+            </div>
+            <!-- form errors -->
+            {% if form.errors %}
+            <div class="form-errors">
+                {% for field, errors in form.errors.items %}
+                <p>{{ field }}: {{ errors|join:", " }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!-- submit button field -->
+            <button class="submit-button" type="submit">
+                Sign up
+            </button>
+        </form>
+    </div>
+    <div class="optional">
+        <p>If you already signed up, <a href="{% url 'login' %}">login</a></p>
+    </div>
+</div>
+{% endblock content %}

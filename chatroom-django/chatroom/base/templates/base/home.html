@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock stylesheets %}
+
+{% block title %}
+- home
+{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <div class="room-content">
+        <div class="sidebar">
+            <span class="room-count">{{ count }} Rooms available.</span>
+            <div class="sidebar-links">
+                {% if request.user.is_superuser %}
+                <h4>
+                    <a href="{% url 'create_hashtag' %}">create hashtag</a>
+                </h4>
+                {% endif %}
+                {% if request.user.is_authenticated %}
+                    <h4>
+                        <a href="{% url 'create_room' %}">create a new room</a>
+                    </h4>
+                {% endif %}
+            </div>
+        </div>
+        <div class="room-card">
+            {% for room in rooms %}
+                <div class="card">
+                    <div class="card-top">
+                        <div class="card-title">
+                            <img src="{{ room.host.profile_pic.url }}" alt="{{ room.host.username }}" width="40">
+                            <h3>
+                                <a href="{% url 'profile_view' room.host.id %}">
+                                {{ room.host.username }}
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="options">
+                            {% if request.user.is_authenticated and request.user == room.host %}
+                            <div>
+                                <a href="{% url 'update_room' room.id %}">
+                                    <img src="{% static 'images/update-icon.png' %}" alt="update" title="update">
+                                </a>
+                                <a href="{% url 'delete_room' room.id %}">
+                                    <img src="{% static 'images/delete.png' %}" alt="delete" title="delete">
+                                </a>
+                            </div>
+                            {% endif %}   
+                            <h5>by {{ room.updated|timesince }} ago</h5>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3><a href="{% url 'room' room.id %}">{{ room.name }}</a></h3>
+                        {% if room.information %}
+                            <p>{{ room.information }}</p>
+                        {% endif %}
+                        <h3><a href="{% url 'home' %}?q={{ room.hashtag.name }}">#{{ room.hashtag.name }}</a></h3>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No rooms available right now.</p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="hashtags-list">
+        <h2>Browse Hashtags</h2>
+        {% for hashtag in hashtags %}
+            <div class="hashtag">
+                <h4>
+                    <a id="hashtag-links" href="{% url 'home' %}?q={{ hashtag.name }}">{{ hashtag.name }}</a>
+                    {% if request.user.is_superuser %}
+                    <small>
+                        <a href="{% url 'delete_hashtag' hashtag.id %}">
+                            <img src="{% static 'images/delete.png' %}" alt="delete_hashtag">
+                        </a>
+                    </small>
+                    {% endif %}
+                </h4>
+            </div>
+        {% empty %}
+            <p>No hashtags yet now.</p>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

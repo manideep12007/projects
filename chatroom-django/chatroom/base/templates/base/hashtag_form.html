@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block title %}
+- room 
+{% endblock title %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'css/common_form.css' %}">
+{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="container">
+    <div id="back-btn">
+        <a href="{% url 'home' %}">
+            ⟵
+        </a>
+    </div>
+    <h2 class="heading">
+        Create Hashtag
+    </h2>
+    <div class="form-container">
+        <form method="post" class="form-control">
+            {% csrf_token %}
+            <!-- hashtag name field -->
+            <div class="form-name">
+                <label for="{{ form.name.id_for_label }}">
+                    {{ form.name.label }}
+                </label>
+                {{ form.name }}
+            </div>
+            <!-- form errors -->
+            {% if form.errors %}
+            <div class="form-errors">
+                {% for field, errors in form.errors.items %}
+                <p>{{ field }}: {{ errors|join:", " }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!-- submit button field -->
+            <button class="submit-button" type="submit">
+                create hashtag
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,229 @@
+.container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    padding: 25px;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+.hashtags-list {
+    background-color: rgb(255, 0, 0);
+    padding: 15px;
+    border-radius: 10px;
+    max-height: 100vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    color: white;
+}
+
+.room-content {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 10px;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 4px 16px rgba(255, 0, 0, 0.1);
+    color: white;
+}
+
+.sidebar a {
+    padding: 6px 15px;
+    font-size: 18px;
+    color: red;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.4s ease;
+}
+
+.sidebar a:hover {
+    background-color: red;
+    color: white;
+}
+
+.sidebar-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.room-count {
+    color: red;
+    font-size: 20px;
+}
+
+.room-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 10px 0;
+    overflow-y: auto;
+}
+
+.card {
+    border: 1px solid red;
+    padding: 15px;
+    background-color: #111;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(255, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    color: white;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(255, 0, 0, 0.2);
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-title img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.card-title a {
+    text-decoration: none;
+    color: red;
+    font-weight: bold;
+    transition: background-color 0.4s ease, color 0.4s ease, padding 0.4s ease;
+}
+
+.card-title a:hover {
+    padding: 8px;
+    border-radius: 8px;
+    background-color: red;
+    color: white;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+}
+
+.options img {
+    width: 18px;
+    margin-left: 8px;
+    cursor: pointer;
+    filter: invert(1);
+}
+
+.card-content a {
+    color: red;
+    text-decoration: none;
+    font-style: italic;
+    transition: all 0.4s ease;
+}
+
+.card-content a:hover {
+    background-color: red;
+    color: white;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.card-content p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+}
+
+.hashtag {
+    margin-bottom: 12px;
+}
+
+.hashtag h4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+}
+
+.hashtag a {
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+#hashtag-links:hover {
+    text-decoration: underline;
+    background-color: white;
+    color: red;
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.hashtag img {
+    width: 16px;
+    margin-right: 10px;
+    filter: invert(1);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .room-content {
+        padding: 12px;
+    }
+
+    .hashtags-list {
+        padding: 12px;
+        margin-top: 25px;
+        max-height: none;
+    }
+
+    .sidebar-links {
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .sidebar a {
+        font-size: 16px;
+        padding: 8px 10px;
+    }
+
+    .room-count {
+        font-size: 18px;
+    }
+
+    .card-title h3,
+    .card-content h3,
+    .hashtag h4 {
+        font-size: 16px;
+    }
+
+    .card-content p {
+        font-size: 13px;
+    }
+
+    .options {
+        gap: 4px;
+    }
+}

@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static 'css/common_form.css' %}">
+{% endblock stylesheets %}
+
+{% block title %}
+- login
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div id="back-btn">
+        <a href="{% url 'home' %}">
+            ⟵
+        </a>
+    </div>
+    <h2 class="heading">Login Page</h2>
+    <div class="form-container">
+        <form method="post" class="form-control">
+            {% csrf_token %}
+            <!-- username field -->
+            <div class="form-username">
+                <label for="{{ form.username.id_for_label }}">
+                    {{ form.username.label }}
+                </label>
+                {{ form.username }}
+            </div>
+            <!-- password field -->
+            <div class="form-password">
+                <label for="{{ form.password.id_for_label }}">
+                    {{ form.password.label }}
+                </label>
+                {{ form.password }}
+            </div>
+            <!-- form errors -->
+            {% if form.errors %}
+            <div class="form-errors">
+                {% for field, errors in form.errors.items %}
+                <p>{{ field }}: {{ errors|join:", " }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!-- submit button field -->
+            <button class="submit-button" type="submit">
+                Login
+            </button>
+        </form>
+    </div>
+    <div class="optional">
+        <p>If you haven’t signed up yet, <a href="{% url 'signup' %}">sign up</a></p>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,259 @@
+.container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 25px;
+    padding: 30px;
+    box-sizing: border-box;
+    color: white;
+}
+
+.room-chat {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    background-color: #111;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.2);
+}
+
+.room-content {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.options a {
+    color: red;
+    font-size: 22px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.options img {
+    width: 22px;
+    height: 22px;
+    margin-left: 10px;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.options img:hover {
+    transform: scale(1.15);
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.update-delete {
+    display: flex;
+    gap: 10px;
+}
+
+#room-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: red;
+}
+
+#room-author,
+#created-time,
+#room-info {
+    font-size: 15px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.room-conversation {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.room-conversation h2 {
+    margin-bottom: 15px;
+    color: red;
+}
+
+.conversations {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 350px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+
+.chat {
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.chat a {
+    text-decoration: none;
+    color: white;
+}
+
+.chat a:hover {
+    text-decoration: underline;
+}
+
+.chat h5 {
+    margin: 0 0 8px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.chat p {
+    font-size: 15px;
+    color: white;
+    line-height: 1.5;
+}
+
+.chat small {
+    font-size: 12px;
+    color: gray;
+    display: block;
+    margin-top: 8px;
+}
+
+.chat a img {
+    width: 18px;
+    height: 18px;
+    margin-left: 8px;
+    vertical-align: middle;
+    transition: transform 0.3s ease;
+}
+
+.chat a img:hover {
+    padding: 5px;
+    border-radius: 10px;
+    background-color: white;
+    color: #cc0000;
+    transform: scale(1.1);
+}
+
+.chat-form {
+    margin-top: 20px;
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.form-chat {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.form-chat input[type="text"] {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: black;
+    background-color: white;
+}
+
+.form-chat button {
+    background-color: red;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-chat button:hover {
+    background-color: #cc0000;
+}
+
+.form-chat button img {
+    width: 20px;
+    height: 20px;
+}
+
+.participants-list {
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.1);
+}
+
+.participants-list h2 {
+    margin-bottom: 10px;
+    color: red;
+}
+
+.counter {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.participants {
+    margin-bottom: 10px;
+}
+
+#participant-links {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+#participant-links:hover {
+    color: red;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        padding: 20px 15px;
+    }
+
+    .room-chat,
+    .room-content,
+    .room-conversation,
+    .participants-list {
+        padding: 15px;
+    }
+
+    #room-title {
+        font-size: 22px;
+    }
+
+    #room-author,
+    #created-time,
+    #room-info,
+    .counter {
+        font-size: 13px;
+    }
+
+    .chat-form input[type="text"] {
+        font-size: 13px;
+    }
+
+    .form-chat button img {
+        width: 16px;
+        height: 16px;
+    }
+
+    .options a {
+        font-size: 18px;
+    }
+}

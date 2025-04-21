@@ -1,0 +1,32 @@
+{% load static %}
+<header>
+    <nav class="navbar">
+        <div class="navleft">
+            <div class="logo-form">
+                <h2><a href="{% url 'home' %}">ChatRoom</a></h2>
+                <form action="{% url 'home' %}" method="get"
+                class="search-form">
+                    <input type="text" name="q" id="search-input" placeholder="search here..." />
+                </form>
+            </div>
+        </div>
+        <ul class="navright">
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'profile_view' request.user.id %} ">
+                <img src="{{ request.user.profile_pic.url }}" alt="{{ request.user.username }}" width="30">
+            </a>
+            <div class="auth-links">
+                <li><a href="{% url 'logout' %}">logout</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">login</a></li>
+            <li><a href="{% url 'signup' %}">signup</a></li>
+            {% endif %}
+            </div>
+        </ul>
+    </nav>
+    {% if request.user.is_authenticated %}
+    <div class="greeting-message">
+        <p>Hey <a href="{% url 'profile_view'  request.user.id %}">{{ request.user.username }}</a>! You're back! Let's make some great conversations on ChatRoom! 🚀</p> 
+    </div>
+    {% endif %}
+</header>
