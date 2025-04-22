@@ -12,7 +12,7 @@ A simple browser-based Rock Paper Scissors game built using HTML, CSS, and JavaS
 - See if you can beat the computer!
 
 ## Preview
-![Screenshot](rock-paper-scissors/images/preview_screenshot.png)
+![Screenshot](images/preview_screenshot.png)
 
 ## Run locally
 Just open `index.html` in your browser.
